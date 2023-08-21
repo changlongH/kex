@@ -1,0 +1,38 @@
+# kex config
+# kubernetes current use cluster config
+kubeConfig: ~/.kube/config
+
+# multi clusters config to select
+# optional Usage: $kex cluster
+kubeConfigsPath: ~/.kube/configs/
+
+alias:
+  cluster: change
+  pods: ps
+
+# service-name style xxx-xxx-xxx
+# etc. 
+#     namespace : kex-service-cn-v1 -> NameSpaceArgs[4] = ["kex", "service", "cn", "v1"]
+#     podname   : auth-1-0          -> PodNameArgs[6] = ["auth", "1", "0"]
+enter:
+  separator: "-" # separator namespace and pod
+  pathTmpl:
+    - ""    # $HOME
+#   - /game/run/{.NameSpace}/{.PodNameArgs[0]}
+#   - /game/log/{.NameSpace}/{.PodName}
+
+
+# output can include ANSI color codes
+# black, red, green, yellow, blue, magenta, cyan, white
+colors:
+  cluster:
+    label: yellow # title
+    active: red # select line
+    inactive: cyan # other line
+  
+  pods:
+    namespace: blue
+    podname: cyan
+    label: yellow # title
+    active: red
+    inactive: cyan # other line
